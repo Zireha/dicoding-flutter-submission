@@ -37,7 +37,7 @@ class ListCard extends StatelessWidget {
 
               ),
               Row(
-                spacing: ,
+                spacing: 4,
                 children: [
                   const Icon(Icons.location_on),
                   Text(
@@ -47,7 +47,7 @@ class ListCard extends StatelessWidget {
                 ],
               ),
               Row(
-                spacing: ,
+                spacing: 4,
                 children: [
                   const Icon(Icons.star),
                   Text('4.5', style: Theme.of(context).textTheme.labelSmall,)

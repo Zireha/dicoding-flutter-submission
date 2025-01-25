@@ -1,1 +1,0 @@
- C:\\Users\\LENOVO\\Documents\\restaurant_app\\.dart_tool\\flutter_build\\697897715fc15691bfbb38f990d75451\\native_assets.yaml: 

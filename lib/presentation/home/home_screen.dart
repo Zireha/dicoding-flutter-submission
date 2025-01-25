@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_app/presentation/home/list_card.dart';
-import 'package:restaurant_app/static/navigation_route.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
