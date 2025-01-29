@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_app/presentation/detail/detail_screen.dart';
 import 'package:restaurant_app/presentation/home/home_screen.dart';
 import 'package:restaurant_app/static/navigation_route.dart';
 import 'package:restaurant_app/style/theme/app_theme.dart';
@@ -19,10 +20,10 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      initialRoute: NavigationRoute.homeScreen.name,
+      initialRoute: NavigationRoute.detailScreen.name,
       routes: {
         NavigationRoute.homeScreen.name: (context) => const HomeScreen(),
-        NavigationRoute.detailScreen.name: (context) => const HomeScreen(),
+        NavigationRoute.detailScreen.name: (context) => const DetailScreen(),
       },
     );
   }
