@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_app/presentation/detail/menu_card.dart';
+import 'package:sliver_fill_remaining_box_adapter/sliver_fill_remaining_box_adapter.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key});
@@ -21,7 +22,7 @@ class DetailScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SliverFillRemaining(
+            SliverFillRemainingBoxAdapter(
               child: Container(
                 margin: const EdgeInsets.symmetric(
                     horizontal: 12.0, vertical: 16.0),
@@ -65,18 +66,49 @@ class DetailScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     const SizedBox(
-                      height: 16,
+                      height: 12,
                     ),
-                    Text(
-                      "Makanan",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall
-                          ?.copyWith(fontWeight: FontWeight.w700),
+                    //   TODO: Menu makanan ama minuman
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Makanan",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineSmall
+                                  ?.copyWith(fontWeight: FontWeight.w500),
+                            ),
+                            const SizedBox(height: 8),
+                            // TODO: Makanan disini
+                            MenuCard(name: "Udin",),
+                          ],
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 12),
-                    // TODO: Bikin list menu
-                    const MenuCard()
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Minuman",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineSmall
+                                  ?.copyWith(fontWeight: FontWeight.w500),
+                            ),
+                            const SizedBox(height: 8),
+                            // TODO: Makanan disini
+                            MenuCard(name: "Udin",),
+                          ],
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),

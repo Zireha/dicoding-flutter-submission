@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      initialRoute: NavigationRoute.detailScreen.name,
+      initialRoute: NavigationRoute.homeScreen.name,
       routes: {
         NavigationRoute.homeScreen.name: (context) => const HomeScreen(),
         NavigationRoute.detailScreen.name: (context) => const DetailScreen(),
