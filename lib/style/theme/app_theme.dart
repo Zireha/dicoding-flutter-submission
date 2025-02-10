@@ -25,7 +25,7 @@ class AppTheme {
 
   static AppBarTheme get _appBarTheme {
     return AppBarTheme(
-        toolbarTextStyle: _textTheme.titleLarge, backgroundColor: Colors.white);
+        toolbarTextStyle: _textTheme.titleLarge, backgroundColor: Colors.brown);
   }
 
   static ThemeData get lightTheme {
@@ -35,7 +35,7 @@ class AppTheme {
       textTheme: _textTheme,
       useMaterial3: true,
       appBarTheme: _appBarTheme,
-      scaffoldBackgroundColor: Colors.white
+      scaffoldBackgroundColor: Colors.brown[100]
     );
   }
 

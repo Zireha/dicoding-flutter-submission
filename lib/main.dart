@@ -23,7 +23,9 @@ class MyApp extends StatelessWidget {
       initialRoute: NavigationRoute.homeScreen.name,
       routes: {
         NavigationRoute.homeScreen.name: (context) => const HomeScreen(),
-        NavigationRoute.detailScreen.name: (context) => const DetailScreen(),
+        NavigationRoute.detailScreen.name: (context) => DetailScreen(
+          id: ModalRoute.of(context)?.settings.arguments as String,
+        ),
       },
     );
   }

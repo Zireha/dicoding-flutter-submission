@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:restaurant_app/data/api/api_services.dart';
 import 'package:restaurant_app/static/detail_result_state.dart';
 
-class HomeDetailProvider extends ChangeNotifier {
+class DetailProvider extends ChangeNotifier {
   final ApiService _apiService;
 
-  HomeDetailProvider(this._apiService);
+  DetailProvider(this._apiService);
 
   DetailResultState _resultState = DetailNoneState();
 
