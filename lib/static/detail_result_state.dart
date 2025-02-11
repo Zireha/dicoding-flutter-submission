@@ -1,4 +1,4 @@
-import 'package:restaurant_app/data/model/restaurant.dart';
+import 'package:restaurant_app/data/response/detail_response.dart';
 
 sealed class DetailResultState {}
 
@@ -13,7 +13,7 @@ class DetailErrorState extends DetailResultState {
 }
 
 class DetailLoadedState extends DetailResultState {
-  final Restaurant data;
+  final RestaurantDetail data;
 
   DetailLoadedState(this.data);
 }

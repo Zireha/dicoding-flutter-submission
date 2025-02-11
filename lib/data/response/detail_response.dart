@@ -1,8 +1,3 @@
-import 'dart:convert';
-import 'package:restaurant_app/data/response/category_response.dart';
-import 'customer_review_response.dart';
-import 'menu_response.dart';
-
 class DetailResponse {
   final bool error;
   final String message;
@@ -14,14 +9,11 @@ class DetailResponse {
     required this.restaurant,
   });
 
-  factory DetailResponse.fromJson(String source) =>
-      DetailResponse.fromMap(json.decode(source));
-
-  factory DetailResponse.fromMap(Map<String, dynamic> map) {
+  factory DetailResponse.fromJson(Map<String, dynamic> json) {
     return DetailResponse(
-      error: map['error'],
-      message: map['message'],
-      restaurant: RestaurantDetail.fromMap(map['restaurant']),
+      error: json['error'],
+      message: json['message'],
+      restaurant: RestaurantDetail.fromJson(json['restaurant']),
     );
   }
 }
@@ -51,20 +43,69 @@ class RestaurantDetail {
     required this.customerReviews,
   });
 
-  factory RestaurantDetail.fromMap(Map<String, dynamic> map) {
+  factory RestaurantDetail.fromJson(Map<String, dynamic> json) {
     return RestaurantDetail(
-      id: map['id'],
-      name: map['name'],
-      description: map['description'],
-      city: map['city'],
-      address: map['address'],
-      pictureId: map['pictureId'],
-      categories: List<Category>.from(
-          map['categories'].map((x) => Category.fromMap(x))),
-      menus: Menus.fromMap(map['menus']),
-      rating: map['rating'].toDouble(),
-      customerReviews: List<CustomerReview>.from(
-          map['customerReviews'].map((x) => CustomerReview.fromMap(x))),
+      id: json['id'],
+      name: json['name'],
+      description: json['description'],
+      city: json['city'],
+      address: json['address'],
+      pictureId: json['pictureId'],
+      categories: (json['categories'] as List)
+          .map((e) => Category.fromJson(e))
+          .toList(),
+      menus: Menus.fromJson(json['menus']),
+      rating: (json['rating'] as num).toDouble(),
+      customerReviews: (json['customerReviews'] as List)
+          .map((e) => CustomerReview.fromJson(e))
+          .toList(),
+    );
+  }
+}
+
+class Category {
+  final String name;
+
+  Category({required this.name});
+
+  factory Category.fromJson(Map<String, dynamic> json) {
+    return Category(name: json['name']);
+  }
+}
+
+class CustomerReview {
+  final String name;
+  final String review;
+  final String date;
+
+  CustomerReview({
+    required this.name,
+    required this.review,
+    required this.date,
+  });
+
+  factory CustomerReview.fromJson(Map<String, dynamic> json) {
+    return CustomerReview(
+      name: json['name'],
+      review: json['review'],
+      date: json['date'],
+    );
+  }
+}
+
+class Menus {
+  final List<Category> foods;
+  final List<Category> drinks;
+
+  Menus({
+    required this.foods,
+    required this.drinks,
+  });
+
+  factory Menus.fromJson(Map<String, dynamic> json) {
+    return Menus(
+      foods: (json['foods'] as List).map((e) => Category.fromJson(e)).toList(),
+      drinks: (json['drinks'] as List).map((e) => Category.fromJson(e)).toList(),
     );
   }
 }

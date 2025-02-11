@@ -6,7 +6,9 @@ class MenuCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container( // Hapus Expanded
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       width: 100,
       height: 100,
       decoration: BoxDecoration(
@@ -26,6 +28,7 @@ class MenuCard extends StatelessWidget {
           Center(
             child: Text(
               name,
+              textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.labelLarge,
             ),
           ),
