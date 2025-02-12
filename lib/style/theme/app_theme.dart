@@ -30,13 +30,12 @@ class AppTheme {
 
   static ThemeData get lightTheme {
     return ThemeData(
-      colorSchemeSeed: AppColor.brown.color,
-      brightness: Brightness.light,
-      textTheme: _textTheme,
-      useMaterial3: true,
-      appBarTheme: _appBarTheme,
-      scaffoldBackgroundColor: Colors.brown[100]
-    );
+        colorSchemeSeed: AppColor.brown.color,
+        brightness: Brightness.light,
+        textTheme: _textTheme,
+        useMaterial3: true,
+        appBarTheme: _appBarTheme,
+        scaffoldBackgroundColor: Colors.brown[100]);
   }
 
   static ThemeData get darkTheme {

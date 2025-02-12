@@ -17,9 +17,7 @@ class ListCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 8),
-        decoration: BoxDecoration(
-          color: Colors.brown.withAlpha(60)
-        ),
+        decoration: BoxDecoration(color: Colors.brown.withAlpha(60)),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
           child: Row(
@@ -37,11 +35,8 @@ class ListCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   child: Container(
                     decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.brown.withAlpha(100),
-                        width: 5
-                      )
-                    ),
+                        border: Border.all(
+                            color: Colors.brown.withAlpha(100), width: 5)),
                     child: Image.network(
                       "https://restaurant-api.dicoding.dev/images/small/${restaurant.pictureId}",
                       fit: BoxFit.cover,
@@ -63,7 +58,7 @@ class ListCard extends StatelessWidget {
                     Row(
                       spacing: 4,
                       children: [
-                        const Icon(Icons.location_on),
+                        const Icon(Icons.location_city),
                         Text(
                           restaurant.city,
                           style: Theme.of(context).textTheme.titleMedium,

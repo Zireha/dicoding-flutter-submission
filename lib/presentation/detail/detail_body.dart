@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_app/data/response/detail_response.dart';
 import 'package:restaurant_app/presentation/detail/food_drinks_detail.dart';
+import 'package:restaurant_app/presentation/detail/review_card.dart';
 import 'package:sliver_fill_remaining_box_adapter/sliver_fill_remaining_box_adapter.dart';
 
 class DetailBody extends StatelessWidget {
@@ -52,15 +53,39 @@ class DetailBody extends StatelessWidget {
                       ?.copyWith(fontWeight: FontWeight.w700),
                 ),
                 Row(
+                  children: [
+                    const Icon(Icons.star),
+                    Text(
+                      restaurantData.rating.toString(),
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall
+                          ?.copyWith(fontWeight: FontWeight.w500),
+                    )
+                  ],
+                ),
+                Row(
                   spacing: 4,
                   children: [
                     const Icon(
-                      Icons.location_on,
+                      Icons.location_city,
                     ),
                     Text(restaurantData.city,
-                        style: Theme.of(context).textTheme.bodyLarge)
+                        style: Theme.of(context).textTheme.bodyLarge),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    const Icon(Icons.location_on),
+                    Text(
+                      restaurantData.address,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    )
                   ],
                 ),
+                const SizedBox(
+                  height: 16,
+                ),
+                ReviewCard(restaurantData: restaurantData),
                 const SizedBox(
                   height: 16,
                 ),
@@ -78,7 +103,6 @@ class DetailBody extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                //   TODO: Menu makanan ama minuman
                 FoodDrinksDetail(restaurantData: restaurantData),
               ],
             ),

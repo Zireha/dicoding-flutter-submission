@@ -1,13 +1,9 @@
 import 'package:flutter/widgets.dart';
 
 class AppTextStyles {
-  static const TextStyle _primary = TextStyle(
-    fontFamily: 'Raleway'
-  );
+  static const TextStyle _primary = TextStyle(fontFamily: 'Raleway');
 
-  static const TextStyle _secondary = TextStyle(
-    fontFamily: 'Cabin'
-  );
+  static const TextStyle _secondary = TextStyle(fontFamily: 'Cabin');
 
   /// displayLarge
   static TextStyle displayLarge = _primary.copyWith(
@@ -56,7 +52,6 @@ class AppTextStyles {
     fontSize: 22,
     fontWeight: FontWeight.w500,
     height: 1.2,
-
   );
 
   /// titleMedium
@@ -64,7 +59,6 @@ class AppTextStyles {
     fontSize: 16,
     fontWeight: FontWeight.w400,
     height: 1.2,
-
   );
 
   /// titleSmall
@@ -72,7 +66,6 @@ class AppTextStyles {
     fontSize: 14,
     fontWeight: FontWeight.w300,
     height: 1.2,
-
   );
 
   /// bodyLargeBold
@@ -101,7 +94,6 @@ class AppTextStyles {
     fontSize: 14,
     fontWeight: FontWeight.w300,
     height: 1.71,
-
   );
 
   /// labelMedium
@@ -109,7 +101,6 @@ class AppTextStyles {
     fontSize: 12,
     fontWeight: FontWeight.w200,
     height: 1.4,
-
   );
 
   /// labelSmall
@@ -117,6 +108,5 @@ class AppTextStyles {
     fontSize: 11,
     fontWeight: FontWeight.w100,
     height: 1.2,
-
   );
 }
