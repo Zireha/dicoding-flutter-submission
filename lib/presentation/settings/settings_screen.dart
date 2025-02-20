@@ -93,7 +93,7 @@ class _NotificationCheckboxState extends State<NotificationCheckbox> {
 
     return Checkbox(
       checkColor: Colors.white,
-      fillColor: MaterialStateProperty.resolveWith(getColor),
+      fillColor: WidgetStateProperty.resolveWith(getColor),
       value: isChecked,
       onChanged: (bool? value) {
         setState(() {
