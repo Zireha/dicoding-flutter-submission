@@ -1,6 +1,9 @@
 enum NavigationRoute {
   homeScreen("/home"),
-  detailScreen("/detail");
+  detailScreen("/detail"),
+  navbarScreen("/navbar"),
+  favoriteScreen("/favorite"),
+  settingScreen("/settings"),;
 
   const NavigationRoute(this.name);
 

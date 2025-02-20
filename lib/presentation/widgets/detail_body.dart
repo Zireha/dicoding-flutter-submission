@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_app/data/response/detail_response.dart';
-import 'package:restaurant_app/presentation/detail/food_drinks_detail.dart';
-import 'package:restaurant_app/presentation/detail/review_card.dart';
+import 'package:restaurant_app/presentation/widgets/food_drinks_detail.dart';
+import 'package:restaurant_app/presentation/widgets/review_card.dart';
 import 'package:sliver_fill_remaining_box_adapter/sliver_fill_remaining_box_adapter.dart';
 
 class DetailBody extends StatelessWidget {

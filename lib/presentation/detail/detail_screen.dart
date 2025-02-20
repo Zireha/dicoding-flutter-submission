@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurant_app/presentation/detail/detail_body.dart';
 import 'package:restaurant_app/provider/detail/detail_provider.dart';
 import 'package:restaurant_app/static/detail_result_state.dart';
+
+import '../widgets/detail_body.dart';
 
 class DetailScreen extends StatefulWidget {
   final String id;
