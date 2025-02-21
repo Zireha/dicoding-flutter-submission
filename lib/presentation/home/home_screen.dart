@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurant_app/presentation/widgets/list_card.dart';
+import 'package:restaurant_app/presentation/home/list_card.dart';
 import 'package:restaurant_app/provider/home/home_list_provider.dart';
 import 'package:restaurant_app/static/list_result_state.dart';
 import 'package:restaurant_app/static/navigation_route.dart';

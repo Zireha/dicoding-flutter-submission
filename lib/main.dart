@@ -10,6 +10,7 @@ import 'package:restaurant_app/provider/detail/detail_provider.dart';
 import 'package:restaurant_app/provider/home/home_list_provider.dart';
 import 'package:restaurant_app/provider/main/index_nav_provider.dart';
 import 'package:restaurant_app/provider/navbar/bottom_navbar_provider.dart';
+import 'package:restaurant_app/provider/provider/favorite_provider.dart';
 import 'package:restaurant_app/provider/theme/theme_mode_provider.dart';
 import 'package:restaurant_app/static/navigation_route.dart';
 import 'package:restaurant_app/style/theme/app_theme.dart';
@@ -37,7 +38,8 @@ void main() {
         ChangeNotifierProvider<BottomNavProvider>(
             create: (_) => BottomNavProvider()
         ),
-        ChangeNotifierProvider(create: (context) => ThemeModeProvider())
+        ChangeNotifierProvider(create: (context) => ThemeModeProvider()),
+        ChangeNotifierProvider(create: (context) => FavoriteProvider())
       ],
       child: const MyApp(),
     ),

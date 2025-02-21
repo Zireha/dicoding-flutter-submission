@@ -1,3 +1,5 @@
+import 'detail_response.dart';
+
 class ListResponse {
   final bool error;
   final String message;
@@ -48,6 +50,17 @@ class RestaurantElement {
         city: json["city"],
         rating: json["rating"].toDouble(),
       );
+
+  factory RestaurantElement.fromDetail(RestaurantDetail detail) {
+    return RestaurantElement(
+      id: detail.id,
+      name: detail.name,
+      description: detail.description,
+      pictureId: detail.pictureId,
+      city: detail.city,
+      rating: detail.rating,
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "id": id,
