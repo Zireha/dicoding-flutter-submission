@@ -10,17 +10,29 @@ import 'package:restaurant_app/provider/detail/detail_provider.dart';
 import 'package:restaurant_app/provider/home/home_list_provider.dart';
 import 'package:restaurant_app/provider/main/index_nav_provider.dart';
 import 'package:restaurant_app/provider/navbar/bottom_navbar_provider.dart';
-import 'package:restaurant_app/provider/provider/favorite_provider.dart';
+import 'package:restaurant_app/provider/notification/local_notification_provider.dart';
+import 'package:restaurant_app/provider/favorite/favorite_provider.dart';
 import 'package:restaurant_app/provider/theme/theme_mode_provider.dart';
 import 'package:restaurant_app/static/navigation_route.dart';
 import 'package:restaurant_app/style/theme/app_theme.dart';
+import 'data/notification/local_notification_service.dart';
 
-void main() {
+void main() async {
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
           create: (context) => IndexNavProvider(),
+        ),
+        Provider(
+          create: (context) => LocalNotificationService()
+            ..init()
+            ..configLocalTimezone(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => LocalNotificationProvider(
+            context.read<LocalNotificationService>(),
+          )..requestPermission(),
         ),
         Provider(
           create: (context) => ApiService(),
@@ -36,8 +48,7 @@ void main() {
           ),
         ),
         ChangeNotifierProvider<BottomNavProvider>(
-            create: (_) => BottomNavProvider()
-        ),
+            create: (_) => BottomNavProvider()),
         ChangeNotifierProvider(create: (context) => ThemeModeProvider()),
         ChangeNotifierProvider(create: (context) => FavoriteProvider())
       ],
@@ -61,11 +72,14 @@ class MyApp extends StatelessWidget {
           routes: {
             NavigationRoute.homeScreen.name: (context) => const HomeScreen(),
             NavigationRoute.detailScreen.name: (context) => DetailScreen(
-              id: ModalRoute.of(context)?.settings.arguments as String,
-            ),
-            NavigationRoute.favoriteScreen.name: (context) => const FavoriteScreen(),
-            NavigationRoute.navbarScreen.name: (context) => const NavbarScreen(),
-            NavigationRoute.settingScreen.name: (context) => const SettingsScreen(),
+                  id: ModalRoute.of(context)?.settings.arguments as String,
+                ),
+            NavigationRoute.favoriteScreen.name: (context) =>
+                const FavoriteScreen(),
+            NavigationRoute.navbarScreen.name: (context) =>
+                const NavbarScreen(),
+            NavigationRoute.settingScreen.name: (context) =>
+                const SettingsScreen(),
           },
         );
       },

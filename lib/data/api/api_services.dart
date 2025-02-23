@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:provider/provider.dart';
 import 'package:restaurant_app/data/response/detail_response.dart';
 import 'package:restaurant_app/data/response/list_response.dart';
 import 'package:http/http.dart' as http;
@@ -27,3 +28,5 @@ class ApiService {
     }
   }
 }
+
+

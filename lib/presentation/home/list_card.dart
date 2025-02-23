@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurant_app/data/response/list_response.dart';
-import 'package:restaurant_app/provider/provider/favorite_provider.dart';
+import 'package:restaurant_app/provider/favorite/favorite_provider.dart';
 
 class ListCard extends StatelessWidget {
   final RestaurantElement restaurant;

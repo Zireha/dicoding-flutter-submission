@@ -4,7 +4,7 @@ import 'package:restaurant_app/data/response/detail_response.dart';
 import 'package:restaurant_app/data/response/list_response.dart';
 import 'package:restaurant_app/presentation/widgets/food_drinks_detail.dart';
 import 'package:restaurant_app/presentation/widgets/review_card.dart';
-import 'package:restaurant_app/provider/provider/favorite_provider.dart';
+import 'package:restaurant_app/provider/favorite/favorite_provider.dart';
 import 'package:sliver_fill_remaining_box_adapter/sliver_fill_remaining_box_adapter.dart';
 
 class DetailBody extends StatelessWidget {
