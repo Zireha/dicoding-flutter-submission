@@ -10,6 +10,7 @@ import 'package:restaurant_app/provider/detail/detail_provider.dart';
 import 'package:restaurant_app/provider/home/home_list_provider.dart';
 import 'package:restaurant_app/provider/main/index_nav_provider.dart';
 import 'package:restaurant_app/provider/navbar/bottom_navbar_provider.dart';
+import 'package:restaurant_app/provider/notification/checkbox_provider.dart';
 import 'package:restaurant_app/provider/notification/local_notification_provider.dart';
 import 'package:restaurant_app/provider/favorite/favorite_provider.dart';
 import 'package:restaurant_app/provider/theme/theme_mode_provider.dart';
@@ -23,6 +24,9 @@ void main() async {
       providers: [
         ChangeNotifierProvider(
           create: (context) => IndexNavProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CheckboxProvider(),
         ),
         Provider(
           create: (context) => LocalNotificationService()

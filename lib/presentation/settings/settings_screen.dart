@@ -1,30 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurant_app/data/response/list_response.dart';
 import 'package:restaurant_app/provider/notification/local_notification_provider.dart';
-import 'package:restaurant_app/provider/theme/theme_mode_provider.dart';
-import 'package:fluttertoast/fluttertoast.dart' as Toast;
+
+import 'dark_mode_switch.dart';
+import 'notification_checkbox.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Future<void> _requestPermission() async {
-      context.read<LocalNotificationProvider>().requestPermission();
-    }
-
-    Future<void> _showNotif() async {
-      context.read<LocalNotificationProvider>().showNotification();
-    }
-
-    Future<void> _scheduleDailyElevenAMNotification(name) async {
-      context.read<LocalNotificationProvider>()
-          .scheduleDailyElevenAMNotification(name);
-    }
-
-    final ButtonStyle style =
-    ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    
     return Scaffold(
         appBar: AppBar(
           title: Text("Pengaturan",
@@ -62,7 +48,7 @@ class SettingsScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            "Beri Notifikasi Setiap Jam 10 Pagi",
+                            "Beri Notifikasi Setiap Jam 11 Siang",
                             style: Theme
                                 .of(context)
                                 .textTheme
@@ -71,83 +57,13 @@ class SettingsScreen extends StatelessWidget {
                           const NotificationCheckbox(),
                         ],
                       ),
+                      //TODO: Delete this before submitting
                       Text("Permission: ${provider.permission}"),
                       const SizedBox(height: 4,),
-                      ElevatedButton(onPressed: () async {
-                        await _showNotif();
-                      }, child: const Text("Show Notif"), style: style,)
                     ],
                   );
                 },
               ),
             )));
-  }
-}
-
-class DarkModeSwitch extends StatelessWidget {
-  const DarkModeSwitch({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<ThemeModeProvider>(
-      builder: (context, themeProvider, child) {
-        return Switch(
-          value: themeProvider.isDarkMode,
-          activeColor: Colors.brown[700],
-          onChanged: (bool value) {
-            themeProvider.toggleDarkMode(value);
-          },
-        );
-      },
-    );
-  }
-}
-
-class NotificationCheckbox extends StatefulWidget {
-  const NotificationCheckbox({super.key});
-
-  @override
-  State<NotificationCheckbox> createState() => _NotificationCheckboxState();
-}
-
-class _NotificationCheckboxState extends State<NotificationCheckbox> {
-  bool isChecked = false;
-
-
-  @override
-  Widget build(BuildContext context) {
-
-    Color getColor(Set<WidgetState> states) {
-      const Set<WidgetState> interactiveStates = <WidgetState>{
-        WidgetState.pressed,
-        WidgetState.hovered,
-        WidgetState.focused,
-      };
-      if (states.any(interactiveStates.contains)) {
-        return Colors.blue;
-      }
-      return Colors.brown;
-    }
-
-    return Consumer<LocalNotificationProvider>(
-      builder: (context, notifProvider, child) {
-        return Checkbox(
-          checkColor: Colors.white,
-          fillColor: WidgetStateProperty.resolveWith(getColor),
-          value: isChecked,
-          onChanged: (bool? value) {
-            setState(() {
-              isChecked = value ?? false;
-            });
-
-            if (isChecked) {
-              notifProvider.scheduleDailyElevenAMNotification(notifProvider.restaurants);
-            } else {
-              notifProvider.cancelNotif(notifProvider.notifId);
-            }
-          },
-        );
-      },
-    );
   }
 }

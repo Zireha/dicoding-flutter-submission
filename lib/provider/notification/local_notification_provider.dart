@@ -7,7 +7,7 @@ class LocalNotificationProvider extends ChangeNotifier {
   final LocalNotificationService flutterNotifService;
 
   LocalNotificationProvider(this.flutterNotifService);
-
+  
   int _notifId = 1;
   bool? _permiss = false;
   List<RestaurantElement> _restaurants = [];

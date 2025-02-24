@@ -26,7 +26,7 @@ class RestaurantDetail {
   final String address;
   final String pictureId;
   final List<Category> categories;
-  final Menus menus;
+  final Menu menus;
   final double rating;
   final List<CustomerReview> customerReviews;
 
@@ -54,7 +54,7 @@ class RestaurantDetail {
       categories: (json['categories'] as List)
           .map((e) => Category.fromJson(e))
           .toList(),
-      menus: Menus.fromJson(json['menus']),
+      menus: Menu.fromJson(json['menus']),
       rating: (json['rating'] as num).toDouble(),
       customerReviews: (json['customerReviews'] as List)
           .map((e) => CustomerReview.fromJson(e))
@@ -93,17 +93,17 @@ class CustomerReview {
   }
 }
 
-class Menus {
+class Menu {
   final List<Category> foods;
   final List<Category> drinks;
 
-  Menus({
+  Menu({
     required this.foods,
     required this.drinks,
   });
 
-  factory Menus.fromJson(Map<String, dynamic> json) {
-    return Menus(
+  factory Menu.fromJson(Map<String, dynamic> json) {
+    return Menu(
       foods: (json['foods'] as List).map((e) => Category.fromJson(e)).toList(),
       drinks:
           (json['drinks'] as List).map((e) => Category.fromJson(e)).toList(),

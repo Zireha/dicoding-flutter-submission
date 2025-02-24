@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurant_app/data/response/list_response.dart';
 import 'package:restaurant_app/presentation/home/list_card.dart';
 import 'package:restaurant_app/provider/home/home_list_provider.dart';
 import 'package:restaurant_app/static/list_result_state.dart';
 import 'package:restaurant_app/static/navigation_route.dart';
-
-import '../../provider/notification/local_notification_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,7 +13,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
 
   @override
   void initState() {

@@ -12,6 +12,7 @@ class ThemeModeProvider extends ChangeNotifier {
   }
 
   bool get isDarkMode => _isDarkMode;
+
   ThemeMode get themeMode => _isDarkMode ? ThemeMode.dark : ThemeMode.light;
 
   Future<void> getThemeAtInit() async {
@@ -20,19 +21,14 @@ class ThemeModeProvider extends ChangeNotifier {
       _isDarkMode = prefs.getBool(themeKey) ?? false;
       notifyListeners();
     } catch (e) {
-      log("Error loading theme preference: $e");
       _isDarkMode = false;
     }
   }
 
   Future<void> toggleDarkMode(bool value) async {
-    try {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setBool(themeKey, value);
-      _isDarkMode = value;
-      notifyListeners();
-    } catch (e) {
-      log("Error saving theme preference: $e");
-    }
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(themeKey, value);
+    _isDarkMode = value;
+    notifyListeners();
   }
 }

@@ -14,7 +14,7 @@ class HomeListProvider extends ChangeNotifier {
 
   ListResultState get resultState => _resultState;
 
-  Future<void> fetchList(BuildContext context) async {
+  Future<dynamic> fetchList(BuildContext context) async {
     try {
       _resultState = ListLoadingState();
       notifyListeners();
