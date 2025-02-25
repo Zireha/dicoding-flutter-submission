@@ -1,11 +1,11 @@
+import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-
 import '../response/list_response.dart';
 
 class DBService {
   static const String _dbName = "restaurantFav.db";
   static const String _tableName = "favorites";
-  static const int _version = 1;
+  static const int _version = 2;
 
   Future<void> createTables(Database db) async {
     await db.execute("""
@@ -23,8 +23,11 @@ class DBService {
 
   //inisiasi DB
   Future<Database> _initializeDB() async {
+    String dbPath = await getDatabasesPath();
+    String path = join(dbPath, _dbName);
+
     return openDatabase(
-      _dbName,
+      path,
       version: _version,
       onCreate: (Database db, int version) async {
         await createTables(db);

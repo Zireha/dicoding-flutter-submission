@@ -9,6 +9,10 @@ class FavoriteProvider extends ChangeNotifier {
 
   List<RestaurantElement> get favorite => _favorites;
 
+  FavoriteProvider() {
+    getFavoriteList();
+  }
+
   Future<void> getFavoriteList() async {
     _favorites = await _dbService.getAllRestaurants();
     notifyListeners();

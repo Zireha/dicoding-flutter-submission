@@ -7,7 +7,6 @@ class ThemeModeProvider extends ChangeNotifier {
   bool _isDarkMode = false;
 
   ThemeModeProvider() {
-    log("ThemeModeProvider initialized");
     getThemeAtInit();
   }
 
