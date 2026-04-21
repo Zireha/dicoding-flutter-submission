@@ -1,16 +1,12 @@
-# restaurant_app
+# 🍽️ Restaurant App
 
-A new Flutter project.
+A simple restaurant app, which made for the qualification of Dicoding Multiplatform Course. This project utilizes Provider state management, API Fetch, and Notifications
 
-## Getting Started
+# 📋Project Scope
 
-This project is a starting point for a Flutter application.
+The scope of this project is used to evaluate my understanding about what I was learning while I was in the Dicoding Multiplatform Bootcamp. 
 
-A few resources to get you started if this is your first Flutter project:
+# 📖What I Learned
+This project really gives me many insight for the present as I write this description. This project tells me how to implement MVVM architecture with Provider as it implements the Loading, Error, and Loaded state while fetching data from API.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Also from this project I learned how to utilize notifications so that users know what kind of event that is currently live in the application i.e. item discount, message reply etc.
